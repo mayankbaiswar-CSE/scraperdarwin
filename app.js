@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -12,6 +13,9 @@ var uploader = require('./routes/uploader');
 var mkdir = require('./utils/mkdir');
 
 var app = express();
+
+//allow cors
+app.use(cors());
 
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
